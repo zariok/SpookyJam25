@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dmeswfb4dx1s5"]
+[gd_scene load_steps=19 format=3 uid="uid://dmeswfb4dx1s5"]
 
 [ext_resource type="Script" uid="uid://dasn165navnjc" path="res://scripts/game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://d3bexlgntb63r" path="res://scenes/characters/player.tscn" id="1_uwrxv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cgoidngsi8r87" path="res://scenes/killzone.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cdxx8vgbs5gj2" path="res://scenes/enemies/slime.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://dth2pukglue6d" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://c7wutey4d7am2" path="res://scenes/falling_coin.tscn" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -235,7 +236,6 @@ unique_name_in_owner = true
 script = ExtResource("1_gee14")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -351,3 +351,11 @@ texture = SubResource("GradientTexture2D_0tnpc")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
 occluder = SubResource("OccluderPolygon2D_gee14")
+
+[node name="Falling Coins" type="Node" parent="."]
+
+[node name="FallingCoin" parent="Falling Coins" instance=ExtResource("9_0tnpc")]
+position = Vector2(-88, -76)
+
+[node name="FallingCoin2" parent="Falling Coins" instance=ExtResource("9_0tnpc")]
+position = Vector2(-23, -76)
