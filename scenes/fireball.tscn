@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://noe7l7k1e8t2"]
+
+[ext_resource type="Script" uid="uid://bf3yc1vbrtx54" path="res://scripts/fireball.gd" id="1_1gl40"]
+[ext_resource type="Texture2D" uid="uid://cowc44qfo6n6w" path="res://assets/sprites/All_Fire_Bullet_Pixel_16x16_00.png" id="1_3s14c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gl40"]
+atlas = ExtResource("1_3s14c")
+region = Rect2(176, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb14k"]
+atlas = ExtResource("1_3s14c")
+region = Rect2(192, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kba2"]
+atlas = ExtResource("1_3s14c")
+region = Rect2(208, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43lgj"]
+atlas = ExtResource("1_3s14c")
+region = Rect2(224, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqoxj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gl40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb14k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kba2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43lgj")
+}],
+"loop": true,
+"name": &"Fireball",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_gee14"]
+offsets = PackedFloat32Array(0, 0.63671875)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_86oub"]
+gradient = SubResource("Gradient_gee14")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3s14c"]
+radius = 4.0
+
+[node name="Fireball" type="Area2D"]
+script = ExtResource("1_1gl40")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_vqoxj")
+animation = &"Fireball"
+autoplay = "Fireball"
+frame = 2
+frame_progress = 0.09560785
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-3.5762787e-07, -4.5)
+scale = Vector2(0.40625003, 0.359375)
+color = Color(1, 1, 0.1882353, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_86oub")
+texture_scale = 1.93
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_3s14c")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0, -4)
+rect = Rect2(-5, -5, 10, 9)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

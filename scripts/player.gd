@@ -3,8 +3,24 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+const FIREBALL_SCENE = preload("res://scenes/fireball.tscn")
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var muzzle = $Muzzle
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+		
+func shoot():
+	var fireball = FIREBALL_SCENE.instantiate()
+	
+	fireball.global_position = muzzle.global_position
+	var move_direction = 1
+	if $AnimatedSprite2D.flip_h:
+		move_direction = -1
+	fireball.direction = Vector2.RIGHT * move_direction
+	get_tree().root.add_child(fireball)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
