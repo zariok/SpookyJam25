@@ -52,7 +52,6 @@ func launch_with_angle(angle_degrees: float, speed: float):
 	launch(initial_velocity)
 
 func _on_coin_finished():
-	print("coin finished lets delete ourselves")
 	queue_free()
 
 func _on_coin_collected(body: Node2D):
