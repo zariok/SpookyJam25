@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dmeswfb4dx1s5"]
+[gd_scene load_steps=22 format=3 uid="uid://dmeswfb4dx1s5"]
 
 [ext_resource type="Script" uid="uid://dasn165navnjc" path="res://scripts/game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://d3bexlgntb63r" path="res://scenes/characters/player.tscn" id="1_uwrxv"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://dth2pukglue6d" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c7wutey4d7am2" path="res://scenes/collectables/falling_coin.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cmmjb7txamalk" path="res://scenes/collectables/coin_generator.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://b58er3s22o8ns" path="res://scenes/collectables/diamond.tscn" id="11_dinhu"]
 [ext_resource type="PackedScene" uid="uid://jmrhlayyqngi" path="res://scenes/collectables/goblet.tscn" id="11_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
@@ -367,7 +368,12 @@ position = Vector2(-23, -76)
 [node name="Goblets" type="Node" parent="Collectables"]
 
 [node name="Goblet" parent="Collectables/Goblets" instance=ExtResource("11_kvpfn")]
-position = Vector2(83, 43)
+position = Vector2(83, 47)
+
+[node name="Diamonds" type="Node" parent="Collectables"]
+
+[node name="Diamond" parent="Collectables/Diamonds" instance=ExtResource("11_dinhu")]
+position = Vector2(217, 102)
 
 [node name="Enemies" type="Node" parent="."]
 
