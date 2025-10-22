@@ -1,8 +1,12 @@
 extends Node
 
-var score = 0
+var coins = 0
+var goblets = 0
 
-func add_point():
-	score += 1
-	print(score)
-	
+func add_coin():
+	coins += 1
+	print("Coin: " + str(coins))
+
+func add_goblet():
+	goblets += 1
+	print("Goblet: " + str(goblets))

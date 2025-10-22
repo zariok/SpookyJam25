@@ -16,8 +16,8 @@ This is a starter game with **ZERO** experience using Godot or GDScript.
 - [BDragon1727](https://bdragon1727.itch.io/) - [Fire Pixel Bullet 16x16](https://bdragon1727.itch.io/fire-pixel-bullet-16x16)
 - [Rotting Pixels](https://rottingpixels.itch.io/) - [Four Seasons Platformer Tileset](https://rottingpixels.itch.io/four-seasons-platformer-tileset-16x16free)
 - [SzadiArt](https://szadiart.itch.io/) - [Pixel Castle 2D](https://szadiart.itch.io/pixle-castle-2d)
-- [BDragon1727]() - [72 Cute Pixel Character](https://bdragon1727.itch.io/72-cute-pixel-character)
-
+- [BDragon1727](https://bdragon1727.itch.io/) - [72 Cute Pixel Character](https://bdragon1727.itch.io/72-cute-pixel-character)
+- [SciGho](https://ninjikin.itch.io/) - [Tresure+](https://ninjikin.itch.io/treasure)
 
 ### Tutorials Used
 - [Brackeys - How to make a Video Game - Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOhfqjmasi0)

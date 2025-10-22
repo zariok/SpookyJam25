@@ -12,6 +12,7 @@ extends Node2D
 func _ready():
 	spawn_timer.timeout.connect(spawn_coin)
 	stop_timer.timeout.connect(_on_stop_timer_timeout)
+	stop_timer.one_shot = true
 	spawn_timer.start()
 	stop_timer.start()
 

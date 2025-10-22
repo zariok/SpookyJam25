@@ -1,15 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmeswfb4dx1s5"]
+[gd_scene load_steps=21 format=3 uid="uid://dmeswfb4dx1s5"]
 
 [ext_resource type="Script" uid="uid://dasn165navnjc" path="res://scripts/game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://d3bexlgntb63r" path="res://scenes/characters/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://c7o1rsfvwx0xc" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://g8ieciuvkjxy" path="res://scenes/platform.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://c4fwyh4csinb1" path="res://scenes/coin.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c4fwyh4csinb1" path="res://scenes/collectables/coin.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cgoidngsi8r87" path="res://scenes/killzone.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cdxx8vgbs5gj2" path="res://scenes/enemies/slime.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://dth2pukglue6d" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://c7wutey4d7am2" path="res://scenes/falling_coin.tscn" id="9_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://cmmjb7txamalk" path="res://scenes/coin_generator.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://c7wutey4d7am2" path="res://scenes/collectables/falling_coin.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://cmmjb7txamalk" path="res://scenes/collectables/coin_generator.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://jmrhlayyqngi" path="res://scenes/collectables/goblet.tscn" id="11_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -237,6 +238,7 @@ unique_name_in_owner = true
 script = ExtResource("1_gee14")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -363,3 +365,8 @@ position = Vector2(-23, -76)
 
 [node name="CoinGenerator" parent="." instance=ExtResource("10_vtaks")]
 position = Vector2(-55, 95)
+
+[node name="Goblets" type="Node" parent="."]
+
+[node name="Goblet" parent="Goblets" instance=ExtResource("11_kvpfn")]
+position = Vector2(83, 43)
