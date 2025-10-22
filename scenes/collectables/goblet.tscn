@@ -32,9 +32,7 @@ region_rect = Rect2(67.38345, 64.37108, 10.090073, 14.838341)
 shape = SubResource("CircleShape2D_h32a7")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(0.27343747, 0.27343747)
-color = Color(8.663535e-07, 0.6874849, 0.6917833, 1)
-energy = 0.51
+scale = Vector2(0.375, 0.40625)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_g2uxc")
 
