@@ -8,7 +8,6 @@
 This is a starter game with **ZERO** experience using Godot or GDScript.
 
 ### Authors:
-- Jonathan Gettys
 - John Draughn @zariok
 
 ### Assets Attribution
