@@ -16,7 +16,6 @@ func _on_body_entered(body: Node2D) -> void:
 	print("+1 coin")
 	GameManager.add_point()
 	if pickup_sound:
-		print("attemping to play: " + pickup_sound.resource_path)
 		AudioManager.play_sound(pickup_sound)
 	else:
 		print("ERROR: Pickup sound is not assigned to this instance")
