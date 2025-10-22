@@ -7,5 +7,8 @@
 script = ExtResource("1_xbcwq")
 coin_scene = ExtResource("2_5gfqt")
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="StopTimer" type="Timer" parent="."]
+wait_time = 5.0

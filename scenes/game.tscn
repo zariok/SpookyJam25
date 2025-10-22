@@ -361,5 +361,5 @@ position = Vector2(-88, -76)
 [node name="FallingCoin2" parent="Falling Coins" instance=ExtResource("9_0tnpc")]
 position = Vector2(-23, -76)
 
-[node name="CoinGenerator" parent="Falling Coins" instance=ExtResource("10_vtaks")]
+[node name="CoinGenerator" parent="." instance=ExtResource("10_vtaks")]
 position = Vector2(-55, 95)
