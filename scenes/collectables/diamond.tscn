@@ -33,8 +33,8 @@ region_rect = Rect2(211.9022, 159.88594, 9.147232, 15.028915)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(0.875, 0.96875)
-energy = 2.09
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ahxtq")
+texture_scale = 1.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -64,12 +64,11 @@ frame = 2
 frame_progress = 0.09560785
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-3.5762787e-07, -4.5)
-scale = Vector2(0.40625003, 0.359375)
-color = Color(1, 1, 0.1882353, 1)
+position = Vector2(0.045000438, -4.652501)
+scale = Vector2(0.40552142, 0.36184427)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_86oub")
-texture_scale = 1.93
+texture_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)

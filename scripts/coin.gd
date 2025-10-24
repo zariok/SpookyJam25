@@ -13,7 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if collected:
 		return
 	collected = true
-	GameManager.add_coin()
+	GameManager.add_collectable("coin")
 	if pickup_sound:
 		AudioManager.play_sound(pickup_sound)
 	else:

@@ -11,7 +11,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if collected:
 		return
 	collected = true
-	GameManager.add_goblet()
+	GameManager.add_collectable("goblet")
 	if pickup_sound:
 		AudioManager.play_sound(pickup_sound)
 	else:

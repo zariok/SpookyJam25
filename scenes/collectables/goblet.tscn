@@ -35,5 +35,6 @@ shape = SubResource("CircleShape2D_h32a7")
 scale = Vector2(0.375, 0.40625)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_g2uxc")
+texture_scale = 1.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

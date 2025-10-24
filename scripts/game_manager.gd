@@ -1,17 +1,18 @@
 extends Node
 
-var coins = 0
-var goblets = 0
-var diamonds = 0
+var collectables = {"coin":0, "goblet":0, "diamond":0}
 
-func add_coin():
-	coins += 1
-	print("Coin: " + str(coins))
+func add_collectable(type: String):
+	if type not in collectables:
+		print("UNKNOWN collectable - " + type)
+		return
+	collectables[type] += 1
+	print(type + ": " + str(collectables[type]))
+	
 
-func add_goblet():
-	goblets += 1
-	print("Goblet: " + str(goblets))
 
-func add_diamond():
-	diamonds += 1
-	print("Diamond: " + str(diamonds))
+func you_died():
+	print("You have perished.")
+	for k in collectables:
+		collectables[k] = 0
+	
