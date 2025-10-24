@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1qtatswy74nx"]
+
+[ext_resource type="FontFile" uid="uid://dth2pukglue6d" path="res://assets/fonts/PixelOperator8.ttf" id="1_cdy5h"]
+[ext_resource type="Script" uid="uid://cwvores85xioy" path="res://scripts/studio.gd" id="1_k2f6q"]
+
+[node name="Studio" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_k2f6q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="J Studio" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1916.0
+offset_bottom = 1071.0
+theme_override_fonts/font = ExtResource("1_cdy5h")
+text = "J  Studio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="3" type="Label" parent="J Studio"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = -7.0
+offset_right = 1881.0
+offset_bottom = 1064.0
+theme_override_fonts/font = ExtResource("1_cdy5h")
+theme_override_font_sizes/font_size = 8
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Brackets" type="Label" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = 1914.0
+offset_bottom = 1073.0
+theme_override_fonts/font = ExtResource("1_cdy5h")
+theme_override_font_sizes/font_size = 32
+text = "[       ]"
+horizontal_alignment = 1
+vertical_alignment = 1

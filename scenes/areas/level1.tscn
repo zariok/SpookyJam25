@@ -1,6 +1,5 @@
-[gd_scene load_steps=22 format=3 uid="uid://dmeswfb4dx1s5"]
+[gd_scene load_steps=21 format=3 uid="uid://dmeswfb4dx1s5"]
 
-[ext_resource type="Script" uid="uid://dasn165navnjc" path="res://scripts/game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://d3bexlgntb63r" path="res://scenes/characters/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://c7o1rsfvwx0xc" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://g8ieciuvkjxy" path="res://scenes/platform.tscn" id="3_lnu2h"]
@@ -179,8 +178,6 @@ texture = ExtResource("2_yqjtg")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
-
 [sub_resource type="Animation" id="Animation_lbhrr"]
 length = 0.001
 tracks/0/type = "value"
@@ -232,11 +229,9 @@ fill_to = Vector2(0, 0)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gee14"]
 polygon = PackedVector2Array(0, 47, 31, 47, 31, -263, 1, -263, 0.15371704, -0.6569824)
 
-[node name="Game" type="Node2D"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kvpfn"]
 
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_gee14")
+[node name="Level  1" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
@@ -260,11 +255,59 @@ limit_left = -140
 limit_bottom = 160
 position_smoothing_speed = 2.0
 
-[node name="Killzone" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(208, 213)
+[node name="Enemies" type="Node" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape2D_p57ef")
+[node name="Slime" parent="Enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(506, 128)
+
+[node name="Collectables" type="Node" parent="."]
+
+[node name="CoinGenerator" parent="Collectables" instance=ExtResource("10_vtaks")]
+position = Vector2(-55, 95)
+
+[node name="Coins" type="Node" parent="Collectables"]
+
+[node name="Coin" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
+position = Vector2(120, 88)
+
+[node name="Coin2" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
+position = Vector2(168, 103)
+
+[node name="Coin3" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
+position = Vector2(152, 9)
+
+[node name="Coin4" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
+position = Vector2(239, 12)
+
+[node name="Coin5" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
+position = Vector2(239, 0)
+
+[node name="Coin6" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
+position = Vector2(337, 67)
+
+[node name="Coin7" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
+position = Vector2(337, 80)
+
+[node name="Coin8" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
+position = Vector2(337, 93)
+
+[node name="Falling Coins" type="Node" parent="Collectables"]
+
+[node name="FallingCoin" parent="Collectables/Falling Coins" instance=ExtResource("9_0tnpc")]
+position = Vector2(-88, -76)
+
+[node name="FallingCoin2" parent="Collectables/Falling Coins" instance=ExtResource("9_0tnpc")]
+position = Vector2(-23, -76)
+
+[node name="Goblets" type="Node" parent="Collectables"]
+
+[node name="Goblet" parent="Collectables/Goblets" instance=ExtResource("11_kvpfn")]
+position = Vector2(83, 47)
+
+[node name="Diamonds" type="Node" parent="Collectables"]
+
+[node name="Diamond" parent="Collectables/Diamonds" instance=ExtResource("11_dinhu")]
+position = Vector2(217, 102)
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -326,56 +369,8 @@ texture = SubResource("GradientTexture2D_0tnpc")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
 occluder = SubResource("OccluderPolygon2D_gee14")
 
-[node name="Collectables" type="Node" parent="."]
+[node name="Killzone" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(208, 213)
 
-[node name="CoinGenerator" parent="Collectables" instance=ExtResource("10_vtaks")]
-position = Vector2(-55, 95)
-
-[node name="Coins" type="Node" parent="Collectables"]
-
-[node name="Coin" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
-position = Vector2(120, 88)
-
-[node name="Coin2" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
-position = Vector2(168, 103)
-
-[node name="Coin3" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
-position = Vector2(152, 9)
-
-[node name="Coin4" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
-position = Vector2(239, 12)
-
-[node name="Coin5" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
-position = Vector2(239, 0)
-
-[node name="Coin6" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
-position = Vector2(337, 67)
-
-[node name="Coin7" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
-position = Vector2(337, 80)
-
-[node name="Coin8" parent="Collectables/Coins" instance=ExtResource("4_lbhrr")]
-position = Vector2(337, 93)
-
-[node name="Falling Coins" type="Node" parent="Collectables"]
-
-[node name="FallingCoin" parent="Collectables/Falling Coins" instance=ExtResource("9_0tnpc")]
-position = Vector2(-88, -76)
-
-[node name="FallingCoin2" parent="Collectables/Falling Coins" instance=ExtResource("9_0tnpc")]
-position = Vector2(-23, -76)
-
-[node name="Goblets" type="Node" parent="Collectables"]
-
-[node name="Goblet" parent="Collectables/Goblets" instance=ExtResource("11_kvpfn")]
-position = Vector2(83, 47)
-
-[node name="Diamonds" type="Node" parent="Collectables"]
-
-[node name="Diamond" parent="Collectables/Diamonds" instance=ExtResource("11_dinhu")]
-position = Vector2(217, 102)
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Slime" parent="Enemies" instance=ExtResource("6_p57ef")]
-position = Vector2(506, 128)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_kvpfn")
