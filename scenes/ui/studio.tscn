@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1qtatswy74nx"]
+[gd_scene load_steps=4 format=3 uid="uid://b1qtatswy74nx"]
 
 [ext_resource type="FontFile" uid="uid://dth2pukglue6d" path="res://assets/fonts/PixelOperator8.ttf" id="1_cdy5h"]
 [ext_resource type="Script" uid="uid://cwvores85xioy" path="res://scripts/studio.gd" id="1_k2f6q"]
+[ext_resource type="PackedScene" uid="uid://dmeswfb4dx1s5" path="res://scenes/areas/level1.tscn" id="2_788oi"]
 
 [node name="Studio" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_k2f6q")
+next_level = ExtResource("2_788oi")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)

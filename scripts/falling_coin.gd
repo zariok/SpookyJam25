@@ -58,5 +58,6 @@ func _on_coin_finished():
 
 func _on_coin_collected(body: Node2D):
 	set_physics_process(false)
-	collision_shape.disabled = true
+	collision_shape.call_deferred("disabled", true)
+	#collision_shape.disabled = true
 	
