@@ -1,3 +1,47 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Temporary Files
+# These are backup files from the editor, like the ones you found.
+*.tmp
+*.TMP
+
+# Exported Binaries
+# You should never track your compiled game in Git.
+build/
+export/
+*.exe
+*.app
+*.pck
+*.zip
+*.apk
+*.aab
+
+# User-Specific Editor Settings
+# These files store your personal editor layout, recent files, etc.
+*.project.godot-user
+editor_settings-*.tres
+
+# Sensitive Information
+# This file can store your Android keystore passwords and other secrets.
+# It's safer for each person to have their own local copy.
+export_presets.cfg
+
+# Mono / C# Specific
+# Ignore build artifacts if you're using C#.
+.mono/
+bin/
+obj/
+.vs/
+*.suo
+*.user
+*.userprefs
+
+# Common IDE Files
+.vscode/
+.idea/
+
+# Common OS Files
+.DS_Store
+Thumbs.db

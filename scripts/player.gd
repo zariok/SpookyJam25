@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 signal exit_sequence_finished
 
+@export var death_sound: AudioStream
+@export var jump_sound: AudioStream
+
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 const FIREBALL_SCENE = preload("res://scenes/fireball.tscn")
@@ -46,6 +49,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		AudioManager.play_sound(jump_sound)
 		velocity.y = JUMP_VELOCITY
 
 	# Gets input direction -1, 0, 1
@@ -73,3 +77,23 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	check_gnome_collisions()
+	
+func check_gnome_collisions():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		# what'd we hit
+		var collider = collision.get_collider()
+		# gnome?
+		if collider and collider.is_in_group("gnome") and not collider.is_in_group("dead_gnome"):
+			# 0 top, 1 side
+			var shapeIdx = collision.get_collider_shape_index()
+			print("Collided with %s" % shapeIdx)
+			if shapeIdx == 0:
+				# hit top
+				if collider.has_method("got_stomped"):
+					collider.got_stomped()
+					velocity.y = JUMP_VELOCITY * 0.5
+			elif shapeIdx == 1:
+				GameManager.you_died(self)
+					

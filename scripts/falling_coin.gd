@@ -20,6 +20,8 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		# air friction; keeps coins from flying into pits
+		velocity.x = lerp(velocity.x, 0.0, friction)
 	
 	var velocity_before_move = velocity
 	# If this detects we hit the floor, it will set velocity = 0

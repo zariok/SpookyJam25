@@ -12,7 +12,6 @@ extends Node2D
 func _ready():
 	spawn_timer.timeout.connect(spawn_coin)
 	stop_timer.timeout.connect(_on_stop_timer_timeout)
-	stop_timer.one_shot = true
 	spawn_timer.start()
 	stop_timer.start()
 
@@ -39,6 +38,4 @@ func spawn_coin():
 	(coin as CharacterBody2D).launch_with_angle(random_angle_degrees, random_speed)
 
 func _on_stop_timer_timeout():
-	print("CoinGenerator 10-second timer finished. Stopping coin spawn.")
-	# Stop the SpawnTimer.
 	spawn_timer.stop()

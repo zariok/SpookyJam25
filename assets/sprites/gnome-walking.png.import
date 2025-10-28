@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cext4s32n42hd"
-path="res://.godot/imported/slime_green.png-f6349164bf3a0f5189bb927b97af9c58.ctex"
+uid="uid://bjw1fb551x24o"
+path="res://.godot/imported/gnome-walking.png-a3737fc7e2bea8d514f60100f459d0e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/slime_green.png"
-dest_files=["res://.godot/imported/slime_green.png-f6349164bf3a0f5189bb927b97af9c58.ctex"]
+source_file="res://assets/sprites/gnome-walking.png"
+dest_files=["res://.godot/imported/gnome-walking.png-a3737fc7e2bea8d514f60100f459d0e1.ctex"]
 
 [params]
 

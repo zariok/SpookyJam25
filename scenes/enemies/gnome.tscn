@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://babrv0p71wqan"]
+
+[ext_resource type="Texture2D" uid="uid://bjw1fb551x24o" path="res://assets/sprites/gnome-walking.png" id="1_02sn3"]
+[ext_resource type="Script" uid="uid://c2g5qls8q3qym" path="res://scripts/gnome.gd" id="1_ap4xf"]
+[ext_resource type="AudioStream" uid="uid://c55gk0j4la4ht" path="res://assets/audio/gnome.wav" id="2_mkd2s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap4xf"]
+size = Vector2(6, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkd2s"]
+size = Vector2(12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap4xf"]
+atlas = ExtResource("1_02sn3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkd2s"]
+atlas = ExtResource("1_02sn3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn7c7"]
+atlas = ExtResource("1_02sn3")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyu3k"]
+atlas = ExtResource("1_02sn3")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwtn5"]
+atlas = ExtResource("1_02sn3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qorlm"]
+atlas = ExtResource("1_02sn3")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nushy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkd2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn7c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyu3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwtn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qorlm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Gnome" type="CharacterBody2D"]
+script = ExtResource("1_ap4xf")
+death_sound = ExtResource("2_mkd2s")
+
+[node name="TopEntry" type="CollisionShape2D" parent="."]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_ap4xf")
+
+[node name="SideEntry" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_mkd2s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_nushy")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.45840845
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, -10)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, -10)
+target_position = Vector2(-9, 0)
