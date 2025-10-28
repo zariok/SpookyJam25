@@ -64,6 +64,7 @@ frame = 2
 frame_progress = 0.09560785
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(0.045000438, -4.652501)
 scale = Vector2(0.40552142, 0.36184427)
 shadow_enabled = true

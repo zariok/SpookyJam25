@@ -26,6 +26,10 @@ AudioManager="*res://scenes/audio_manager.tscn"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[global_group]
+
+Collectible=""
+
 [input]
 
 jump={

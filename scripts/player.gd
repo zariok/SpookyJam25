@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal exit_sequence_finished
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
@@ -7,6 +8,22 @@ const FIREBALL_SCENE = preload("res://scenes/fireball.tscn")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var muzzle = $Muzzle
+
+func _ready():
+	GameManager.level_cleared.connect(_on_level_cleared)
+
+func _on_level_cleared():
+	print("Level Cleared!  Blasting off!!")
+	set_physics_process(false)
+	if animated_sprite:
+		animated_sprite.play("jump")
+	
+	var tween = create_tween()
+	# Fly up 1500px in 2 seconds
+	var target_y = global_position.y - 1500
+	tween.tween_property(self, "global_position:y", target_y, 2.0)
+	await tween.finished
+	exit_sequence_finished.emit()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):

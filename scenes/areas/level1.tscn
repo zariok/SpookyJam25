@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=4 uid="uid://dmeswfb4dx1s5"]
+[gd_scene load_steps=26 format=4 uid="uid://dmeswfb4dx1s5"]
 
+[ext_resource type="Script" uid="uid://b8q8bmrm533ov" path="res://scripts/level_1.gd" id="1_5xhr4"]
 [ext_resource type="PackedScene" uid="uid://d3bexlgntb63r" path="res://scenes/characters/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://c7o1rsfvwx0xc" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://g8ieciuvkjxy" path="res://scenes/platform.tscn" id="3_lnu2h"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cmmjb7txamalk" path="res://scenes/collectables/coin_generator.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://b58er3s22o8ns" path="res://scenes/collectables/diamond.tscn" id="11_dinhu"]
 [ext_resource type="PackedScene" uid="uid://jmrhlayyqngi" path="res://scenes/collectables/goblet.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://bd4lkn8427nat" path="res://scenes/ui/hud.tscn" id="12_gyn0w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -217,6 +219,21 @@ _data = {
 &"move": SubResource("Animation_lnu2h")
 }
 
+[sub_resource type="Animation" id="Animation_gyn0w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(294, 117)]
+}
+
 [sub_resource type="Animation" id="Animation_etfxu"]
 resource_name = "move"
 length = 4.0
@@ -232,21 +249,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(294, 117), Vector2(412, 117)]
-}
-
-[sub_resource type="Animation" id="Animation_gyn0w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(294, 117)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5xhr4"]
@@ -271,6 +273,7 @@ polygon = PackedVector2Array(0, 47, 31, 47, 31, -263, 1, -263, 0.15371704, -0.65
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kvpfn"]
 
 [node name="Level  1" type="Node2D"]
+script = ExtResource("1_5xhr4")
 
 [node name="TileMaps" type="Node2D" parent="."]
 
@@ -285,6 +288,7 @@ tile_map_data = PackedByteArray("AAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAA
 tile_set = SubResource("TileSet_lbhrr")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
@@ -373,6 +377,8 @@ position = Vector2(83, 47)
 [node name="Diamond" parent="Collectables/Diamonds" instance=ExtResource("11_dinhu")]
 position = Vector2(217, 102)
 
+[node name="Spawned" type="Node" parent="Collectables"]
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Upper Platform" parent="Platforms" instance=ExtResource("3_lnu2h")]
@@ -398,17 +404,6 @@ autoplay = "move"
 
 [node name="Labels" type="Node" parent="."]
 
-[node name="Shoot Instruction" type="Label" parent="Labels"]
-offset_left = -101.0
-offset_top = 53.0
-offset_right = -13.0
-offset_bottom = 70.0
-theme_override_colors/font_color = Color(0.011764706, 0.14901961, 0.34901962, 1)
-theme_override_fonts/font = ExtResource("7_u5sy4")
-theme_override_font_sizes/font_size = 8
-text = "'E' to shoot"
-horizontal_alignment = 1
-
 [node name="Jump Instruction" type="Label" parent="Labels"]
 offset_left = -100.0
 offset_top = 21.0
@@ -420,26 +415,17 @@ theme_override_font_sizes/font_size = 8
 text = "Space to jump"
 horizontal_alignment = 1
 
-[node name="Falling Hurts" type="Label" parent="Labels"]
-offset_left = 308.0
-offset_top = 131.0
-offset_right = 396.0
-offset_bottom = 142.0
-theme_override_colors/font_color = Color(0.011764706, 0.14901961, 0.34901962, 1)
-theme_override_fonts/font = ExtResource("7_u5sy4")
-theme_override_font_sizes/font_size = 8
-text = "Falling Hurts"
-horizontal_alignment = 1
-
 [node name="Lighting" type="Node" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="Lighting"]
+visible = false
 position = Vector2(-113, -75)
 scale = Vector2(8.734375, 9.390625)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_0tnpc")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_gee14")
 
 [node name="Killzone" parent="." instance=ExtResource("5_iywne")]
@@ -447,3 +433,5 @@ position = Vector2(208, 213)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_kvpfn")
+
+[node name="HUD" parent="." instance=ExtResource("12_gyn0w")]

@@ -22,8 +22,13 @@ func spawn_coin():
 		return
 
 	var coin = coin_scene.instantiate()
+	coin.add_to_group("Collectible")
 	get_tree().current_scene.add_child(coin)
 	coin.global_position = self.global_position
+	
+	# Notify GameManager for totals
+	GameManager.notify_collectible_spawned(1)
+	
 	var base_angle_up = -90.0
 	var min_angle = base_angle_up - upward_angle_spread
 	var max_angle = base_angle_up + upward_angle_spread

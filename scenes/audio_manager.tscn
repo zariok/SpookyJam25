@@ -13,3 +13,11 @@ script = ExtResource("1_8qd8g")
 [node name="SFXPlayer3" type="AudioStreamPlayer" parent="."]
 
 [node name="SFXPlayer4" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXPlayer5" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXPlayer6" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXPlayer7" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXPlayer8" type="AudioStreamPlayer" parent="."]

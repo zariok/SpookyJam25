@@ -17,7 +17,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
-[node name="Diamond" type="Area2D"]
+[node name="Diamond" type="Area2D" groups=["Collectible"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_72yw6")
@@ -32,6 +32,7 @@ region_enabled = true
 region_rect = Rect2(211.9022, 159.88594, 9.147232, 15.028915)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 scale = Vector2(0.875, 0.96875)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ahxtq")

@@ -109,7 +109,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" groups=["Collectible"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_i64fm")
@@ -124,6 +124,7 @@ frame_progress = 0.9533024
 shape = SubResource("CircleShape2D_ssuvv")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 scale = Vector2(0.27343747, 0.27343747)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_11l1o")
