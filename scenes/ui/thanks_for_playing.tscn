@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqklv6cnytbl0"]
+
+[ext_resource type="Script" uid="uid://bt13thh0q3kp2" path="res://scripts/thanks_for_playing.gd" id="1_h110f"]
+[ext_resource type="FontFile" uid="uid://dth2pukglue6d" path="res://assets/fonts/PixelOperator8.ttf" id="1_xy3g3"]
+
+[node name="ThanksForPlaying" type="Node2D"]
+script = ExtResource("1_h110f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.51718444, 0.5171845, 0.51718444, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1760, 920)
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 1840.0
+offset_bottom = 1000.0
+color = Color(0.31819203, 0.18247992, 0.5697263, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1720, 880)
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 1820.0
+offset_bottom = 980.0
+color = Color(0.60479134, 0.48152006, 0.91527367, 1)
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 353.0
+offset_top = 137.0
+offset_right = 1585.0
+offset_bottom = 938.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Brackets" type="Label" parent="MenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xy3g3")
+theme_override_font_sizes/font_size = 50
+text = "THANKS FOR PLAYING
+
+Un-Gnome
+
+A STLGameDev Jam
+Spooky Jam 2025
+
+This was made with ZERO 
+prior game development
+experience by 
+@zariok 
+in Oct 2025"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MenuContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xy3g3")
+theme_override_font_sizes/font_size = 40
+text = "Continue"
+
+[connection signal="pressed" from="MenuContainer/Button" to="." method="_on_button_pressed"]
