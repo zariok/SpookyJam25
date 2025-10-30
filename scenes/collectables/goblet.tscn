@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://jmrhlayyqngi"]
+[gd_scene load_steps=5 format=3 uid="uid://jmrhlayyqngi"]
 
 [ext_resource type="Script" uid="uid://bryjgugja7fma" path="res://scripts/goblet.gd" id="1_h32a7"]
 [ext_resource type="Texture2D" uid="uid://cmlvt88ntsaya" path="res://assets/sprites/Treasure+.png" id="1_mdk5c"]
@@ -6,16 +6,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h32a7"]
 radius = 4.0
-
-[sub_resource type="Gradient" id="Gradient_gee14"]
-offsets = PackedFloat32Array(0, 0.63671875)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_g2uxc"]
-gradient = SubResource("Gradient_gee14")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0, 0)
 
 [node name="Goblet" type="Area2D" groups=["Collectible"]]
 collision_layer = 4
@@ -30,12 +20,5 @@ region_rect = Rect2(67.38345, 64.37108, 10.090073, 14.838341)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h32a7")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-scale = Vector2(0.375, 0.40625)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_g2uxc")
-texture_scale = 1.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

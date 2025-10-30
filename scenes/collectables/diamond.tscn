@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b58er3s22o8ns"]
+[gd_scene load_steps=5 format=3 uid="uid://b58er3s22o8ns"]
 
 [ext_resource type="Script" uid="uid://bcdqvgmjtc1g0" path="res://scripts/diamond.gd" id="1_72yw6"]
 [ext_resource type="AudioStream" uid="uid://drklv7pu5ua71" path="res://assets/audio/coin.wav" id="2_a8ipl"]
@@ -6,16 +6,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8ipl"]
 radius = 5.0
-
-[sub_resource type="Gradient" id="Gradient_gee14"]
-offsets = PackedFloat32Array(0, 0.63671875)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ahxtq"]
-gradient = SubResource("Gradient_gee14")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0, 0)
 
 [node name="Diamond" type="Area2D" groups=["Collectible"]]
 collision_layer = 4
@@ -30,12 +20,5 @@ shape = SubResource("CircleShape2D_a8ipl")
 texture = ExtResource("2_t25eh")
 region_enabled = true
 region_rect = Rect2(211.9022, 159.88594, 9.147232, 15.028915)
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-scale = Vector2(0.875, 0.96875)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_ahxtq")
-texture_scale = 1.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

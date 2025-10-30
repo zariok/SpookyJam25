@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://noe7l7k1e8t2"]
+[gd_scene load_steps=9 format=3 uid="uid://noe7l7k1e8t2"]
 
 [ext_resource type="Script" uid="uid://bf3yc1vbrtx54" path="res://scripts/fireball.gd" id="1_1gl40"]
 [ext_resource type="Texture2D" uid="uid://cowc44qfo6n6w" path="res://assets/sprites/All_Fire_Bullet_Pixel_16x16_00.png" id="1_3s14c"]
@@ -39,16 +39,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_gee14"]
-offsets = PackedFloat32Array(0, 0.63671875)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_86oub"]
-gradient = SubResource("Gradient_gee14")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0, 0)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s14c"]
 radius = 4.0
 
@@ -62,14 +52,6 @@ animation = &"Fireball"
 autoplay = "Fireball"
 frame = 2
 frame_progress = 0.09560785
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(0.045000438, -4.652501)
-scale = Vector2(0.40552142, 0.36184427)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_86oub")
-texture_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
