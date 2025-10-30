@@ -46,5 +46,7 @@ theme_override_fonts/font = ExtResource("3_u26lw")
 theme_override_font_sizes/font_size = 32
 text = "Exit Game"
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="MenuContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="ready" from="MenuContainer/ExitButton" to="." method="_on_exit_button_ready"]

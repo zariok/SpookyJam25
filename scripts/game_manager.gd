@@ -13,6 +13,7 @@ signal gnomes_changed(stomped, total)
 signal level_cleared
 
 var score: int = 0 
+var level_score: int = 0
 var collectible_total: int = 0
 var collectible_collected: int = 0
 var gnome_total: int = 0
@@ -40,7 +41,9 @@ func _ready():
 	completion_check_timer.one_shot = true
 	completion_check_timer.timeout.connect(_on_completion_check_timer_timeout)
 	add_child(completion_check_timer)
-	
+
+func new_game():
+	score = 0
 
 func init_level_totals():
 	await get_tree().process_frame
@@ -61,7 +64,7 @@ func init_level_totals():
 	gnomes_changed.emit(gnome_stomped, gnome_total)
 	
 	# Score
-	score = 0
+	level_score = 0
 	score_changed.emit(score)
 
 # This is used by collectible spawners (e.g. coin_generator)
@@ -84,8 +87,8 @@ func add_collectable(type: String):
 	
 	# Calculate score based on collectible values
 	if type in SCORE_VALUES:
-		score += SCORE_VALUES[type]
-	score_changed.emit(score)
+		level_score += SCORE_VALUES[type]
+	score_changed.emit(score + level_score)
 	
 	# how many collectibles do we have
 	var collected: int = 0
@@ -109,6 +112,8 @@ func _is_level_compelete():
 		if collectible_collected >= collectible_total and gnome_stomped >= gnome_total and not isLevelCleared:
 			isLevelCleared = true
 			print("Level cleared!")
+			# New base score
+			score = score + level_score
 			level_cleared.emit()
 
 func _on_completion_check_timer_timeout():
