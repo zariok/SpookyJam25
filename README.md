@@ -1,13 +1,17 @@
-# SpookyJam25 Game
+# Un-Gnome - A STLGameDev Jam for SpookyJam25
 
 [STLGameDev Spooky Jam 2025](https://itch.io/jam/stlgamedev-spooky-jam-2025)
 - Theme: "The Unknown"
 - Open: Oct 16, 2025 - Oct 30, 2025
 
-##  About
-This is a starter game with **ZERO** experience using Godot or GDScript.
+Itch.io [Game Page](https://zariok.itch.io/un-gnome)
 
-### Authors:
+##  About
+Grab all collectibles and STOMP all gnomes to finish the level!
+
+Prior to starting this project, I had never opened Godot or any game creating software.  Everything contained here is based on learning what it would take to put together a game using Godot and GDScript.  I followed some tutorials on YT as well as searching the web for various concepts.
+
+### Author:
 - John Draughn @zariok
 
 ### Assets Attribution
