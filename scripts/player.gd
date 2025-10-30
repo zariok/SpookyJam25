@@ -4,6 +4,7 @@ signal exit_sequence_finished
 
 @export var death_sound: AudioStream
 @export var jump_sound: AudioStream
+@export var leave_sound: AudioStream
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
@@ -13,19 +14,27 @@ const FIREBALL_SCENE = preload("res://scenes/fireball.tscn")
 @onready var walk_sound = $WalkSoundPlayer
 @onready var muzzle = $Muzzle
 
+@onready var camera = $Camera2D
+
 func _ready():
 	GameManager.level_cleared.connect(_on_level_cleared)
 
 func _on_level_cleared():
 	print("Level Cleared!  Blasting off!!")
 	set_physics_process(false)
+
+	if camera:
+		# Detach camera
+		camera.top_level = true
+
 	if animated_sprite:
 		animated_sprite.play("jump")
 	
 	var tween = create_tween()
 	# Fly up 1500px in 2 seconds
-	var target_y = global_position.y - 1500
-	tween.tween_property(self, "global_position:y", target_y, 2.0)
+	var target_y = global_position.y - 400
+	AudioManager.play_sound(leave_sound)
+	tween.tween_property(self, "global_position:y", target_y, 5.0)
 	await tween.finished
 	exit_sequence_finished.emit()
 

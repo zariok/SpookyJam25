@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://d3bexlgntb63r"]
+[gd_scene load_steps=30 format=3 uid="uid://d3bexlgntb63r"]
 
 [ext_resource type="Texture2D" uid="uid://kuksc6xqdljx" path="res://assets/sprites/knight.png" id="1_rp718"]
 [ext_resource type="Script" uid="uid://crhcgms80eonn" path="res://scripts/player.gd" id="1_yewv4"]
 [ext_resource type="AudioStream" uid="uid://b7frrqv2k4c5a" path="res://assets/audio/sfx_fail6.wav" id="2_dyp2m"]
 [ext_resource type="AudioStream" uid="uid://cxp6m50d7ai24" path="res://assets/audio/jump.wav" id="3_dyp2m"]
+[ext_resource type="AudioStream" uid="uid://l2ca4yqimg2y" path="res://assets/audio/sfx_sound_vaporizing.wav" id="4_kqtwu"]
 [ext_resource type="AudioStream" uid="uid://bknruogjkg4up" path="res://assets/audio/player_walk.wav" id="5_atpat"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yewv4"]
@@ -179,6 +180,7 @@ collision_layer = 2
 script = ExtResource("1_yewv4")
 death_sound = ExtResource("2_dyp2m")
 jump_sound = ExtResource("3_dyp2m")
+leave_sound = ExtResource("4_kqtwu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
