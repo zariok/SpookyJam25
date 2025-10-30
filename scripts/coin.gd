@@ -19,7 +19,6 @@ func _on_body_entered(body: Node2D) -> void:
 	else:
 		print("ERROR: Pickup sound is not assigned to this instance")
 	collision_shape.set_deferred("disabled", true)
-	point_light.enabled = false
 	animated_sprite.visible = false
 	emit_signal("coin_picked_up")
 	if coin_picked_up.get_connections().is_empty():

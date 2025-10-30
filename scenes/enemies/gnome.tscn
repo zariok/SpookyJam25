@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c55gk0j4la4ht" path="res://assets/audio/gnome.wav" id="2_mkd2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap4xf"]
-size = Vector2(6, 10)
+size = Vector2(10, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkd2s"]
 size = Vector2(12, 12)
@@ -65,7 +65,7 @@ script = ExtResource("1_ap4xf")
 death_sound = ExtResource("2_mkd2s")
 
 [node name="TopEntry" type="CollisionShape2D" parent="."]
-position = Vector2(0, -23)
+position = Vector2(0, -23.5)
 shape = SubResource("RectangleShape2D_ap4xf")
 
 [node name="SideEntry" type="CollisionShape2D" parent="."]
@@ -81,8 +81,8 @@ frame_progress = 0.45840845
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, -10)
-target_position = Vector2(9, 0)
+target_position = Vector2(8, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, -10)
-target_position = Vector2(-9, 0)
+target_position = Vector2(-8, 0)
