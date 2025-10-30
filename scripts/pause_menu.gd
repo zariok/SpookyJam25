@@ -33,3 +33,8 @@ func _on_title_pressed():
 	unpause_game()
 	Music.change_music("res://assets/music/TitleMusic.mp3")
 	get_tree().change_scene_to_file("res://scenes/ui/title_scene.tscn")
+
+
+func _on_exit_button_pressed() -> void:
+	unpause_game()
+	get_tree().quit()

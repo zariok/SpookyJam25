@@ -57,3 +57,16 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_6tw0m")
 theme_override_font_sizes/font_size = 32
 text = "Back to Title Screen"
+
+[node name="Control3" type="Control" parent="MenuContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="MenuContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6tw0m")
+theme_override_font_sizes/font_size = 32
+text = "Exit Game"
+
+[connection signal="pressed" from="MenuContainer/ExitButton" to="." method="_on_exit_button_pressed"]

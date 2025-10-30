@@ -35,4 +35,16 @@ theme_override_fonts/font = ExtResource("3_u26lw")
 theme_override_font_sizes/font_size = 32
 text = "Start"
 
+[node name="Control2" type="Control" parent="MenuContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="MenuContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u26lw")
+theme_override_font_sizes/font_size = 32
+text = "Exit Game"
+
 [connection signal="pressed" from="MenuContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuContainer/ExitButton" to="." method="_on_exit_button_pressed"]

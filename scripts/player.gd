@@ -25,13 +25,13 @@ func _on_level_cleared():
 
 	if camera:
 		# Detach camera
-		camera.reparent(get_tree().root)
+		camera.reparent(get_parent())
 
 	if animated_sprite:
 		animated_sprite.play("jump")
 	
 	var tween = create_tween()
-	# Fly up 1500px in 2 seconds
+	# Fly up 400px in 5seconds; Little slower
 	var target_y = global_position.y - 400
 	AudioManager.play_sound(leave_sound)
 	tween.tween_property(self, "global_position:y", target_y, 5.0)
