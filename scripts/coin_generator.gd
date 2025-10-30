@@ -14,6 +14,9 @@ func _ready():
 	stop_timer.timeout.connect(_on_stop_timer_timeout)
 	spawn_timer.start()
 	stop_timer.start()
+	
+	# Register with GameManager
+	GameManager.register_coin_generator()
 
 func spawn_coin():
 	if not coin_scene:
@@ -39,3 +42,6 @@ func spawn_coin():
 
 func _on_stop_timer_timeout():
 	spawn_timer.stop()
+	
+	# Notify GameManager that this generator has finished
+	GameManager.unregister_coin_generator()

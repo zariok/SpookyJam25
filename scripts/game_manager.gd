@@ -19,6 +19,8 @@ var gnome_total: int = 0
 var gnome_stomped: int = 0
 var isLevelCleared = false
 var death_timer: Timer
+var active_coin_generators: int = 0
+var completion_check_timer: Timer
 
 const SCORE_VALUES = {
 	"coin":      10,
@@ -33,11 +35,18 @@ func _ready():
 	death_timer.timeout.connect(_on_death_timer_timeout)
 	add_child(death_timer)
 	
+	completion_check_timer = Timer.new()
+	completion_check_timer.wait_time = 2.0
+	completion_check_timer.one_shot = true
+	completion_check_timer.timeout.connect(_on_completion_check_timer_timeout)
+	add_child(completion_check_timer)
+	
 
 func init_level_totals():
 	await get_tree().process_frame
 	
 	isLevelCleared = false
+	active_coin_generators = 0
 	
 	# Collectibles
 	for k in collectibles:
@@ -90,10 +99,21 @@ func add_collectable(type: String):
 
 # Are we done with this level?
 func _is_level_compelete():
-	if collectible_collected >= collectible_total and gnome_stomped >= gnome_total and not isLevelCleared:
-		isLevelCleared = true
-		print("Level cleared!")
-		level_cleared.emit()
+	# If there are still active coin generators, don't check yet
+	if active_coin_generators > 0:
+		print("Waiting for coin generators to finish...")
+		return
+	
+	# If we just finished the last coin generator, wait 2 more seconds
+	if completion_check_timer.is_stopped():
+		if collectible_collected >= collectible_total and gnome_stomped >= gnome_total and not isLevelCleared:
+			isLevelCleared = true
+			print("Level cleared!")
+			level_cleared.emit()
+
+func _on_completion_check_timer_timeout():
+	print("Completion check timer finished, checking level status...")
+	_is_level_compelete()
 
 func you_died(body: Node2D):
 	print("You have perished, try again.")
@@ -109,3 +129,18 @@ func you_died(body: Node2D):
 func _on_death_timer_timeout():
 	Engine.time_scale = 1.0
 	get_tree().reload_current_scene()
+
+# Called by coin_generator when it starts
+func register_coin_generator():
+	active_coin_generators += 1
+	print("Coin generator registered. Active: ", active_coin_generators)
+
+# Called by coin_generator when its StopTimer finishes
+func unregister_coin_generator():
+	active_coin_generators -= 1
+	print("Coin generator finished. Active: ", active_coin_generators)
+	
+	# If this was the last coin generator, start the 2-second delay
+	if active_coin_generators == 0:
+		print("All coin generators finished. Starting 2-second delay before level completion check...")
+		completion_check_timer.start()
