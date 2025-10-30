@@ -10,6 +10,7 @@ const JUMP_VELOCITY = -300.0
 const FIREBALL_SCENE = preload("res://scenes/fireball.tscn")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var walk_sound = $WalkSoundPlayer
 @onready var muzzle = $Muzzle
 
 func _ready():
@@ -65,9 +66,13 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("idle")
+			walk_sound.stop()
 		else:
 			animated_sprite.play("run")
+			if not walk_sound.playing:
+				walk_sound.play()
 	else:
+		walk_sound.stop()
 		animated_sprite.play("jump")
 		
 	# Apply movement
