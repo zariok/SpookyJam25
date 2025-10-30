@@ -25,7 +25,7 @@ func _on_level_cleared():
 
 	if camera:
 		# Detach camera
-		camera.top_level = true
+		camera.reparent(get_tree().root)
 
 	if animated_sprite:
 		animated_sprite.play("jump")
